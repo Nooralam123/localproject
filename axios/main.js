@@ -10,17 +10,39 @@ function getTodos() {
   
   // POST REQUEST
   function addTodo() {
-    
+    axios({
+        method:"post",
+        url:"https://jsonplaceholder.typicode.com/posts?_limit=10",
+        data:{
+            title:"New Tudo",
+            completed:false
+        }
+    })
+    .then(res => showOutput(res))
+    .catch(err => console.log(err))
   }
   
   // PUT/PATCH REQUEST
   function updateTodo() {
-    console.log('PUT/PATCH Request');
+    axios
+    .patch("https://jsonplaceholder.typicode.com/posts/1",{
+        
+            title:"updated Tudo",
+            completed:true
+    })
+
+    
+    .then(res => showOutput(res))
+    .catch(err => console.log(err))
   }
   
   // DELETE REQUEST
   function removeTodo() {
-    console.log('DELETE Request');
+    axios
+    .delete("https://jsonplaceholder.typicode.com/posts/1")
+
+    .then(res => showOutput(res))
+    .catch(err => console.log(err))
   }
   
   // SIMULTANEOUS DATA
