@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="details">
+        <input type="text" name="username" placeholder="enter name"><br><br>
+        <input type="email" name="email" placeholder="enter email"><br><br>
+        <input type="number" name="number" placeholder="enter number"><br><br>
+        <button>submit</button>
+
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        function details(e){
+            e.preventDefault()
+            let name = e.target.username.value;
+            let email = e.target.email.value;
+            let number= e.target.number.value;
+
+            let obj = {
+                name,
+                email,
+                number
+            }
+
+           axios.post("https://crudcrud.com/api/1c2dc1ca883d4b73a9d6f47ad20dd869/userAppointment",obj)
+           .then(res => console.log(res))
+           .catch(err=>console.log(err))
+        }
+    </script>
+</body>
+</html>
