@@ -7,31 +7,76 @@
     <title>Document</title>
 </head>
 <body>
-    <form onsubmit="details">
-        <input type="text" name="username" placeholder="enter name"><br><br>
-        <input type="email" name="email" placeholder="enter email"><br><br>
-        <input type="number" name="number" placeholder="enter number"><br><br>
-        <button>submit</button>
+   
+    <form id="form">
 
-    </form>
+        <h1>Add User</h1>
+   
+        <div id="msg"></div>
+   
+        <label for="">Name</label>
+   
+        <input type="text" id="name" required><br><br>
+   
+        <label>Email</label>
+   
+        <input type="email" id="email" required><br><br>
+   
+        <button type="submit" id="btn">submit</button>
+   
+       </form>
+   
+       <ul class="list"></ul>
+   
+       <script>
+   
+           let form = document.querySelector("#form")
+   
+           let inputName = document.querySelector("#name").value
+   
+           let inputEmail = document.querySelector("#email").value
+   
+           let btn = document.querySelector("#btn")
+   
+           let list = document.querySelector(".list")
+   
+           let msg = document.querySelector("#msg")
+   
+   
+   
+           form.addEventListener("submit",onsubmit)
+   
+           function onsubmit(e){
+   
+               e.preventDefault()
+   
+                
+
+
+
+                let li = document.createElement("li")
+   
+               li.appendChild(document.createTextNode(`${inputName} :${inputEmail} `))
+
+                 list.appendChild(li)
+   
+                 inputName.value=""
+   
+                 inputEmail.value=""
+
+                 let obj={
+                     list
+                  }
+                  axios.post("https://crudcrud.com/api/afa58426b09d415a8a195f6a64b01c70/appointment",obj)
+                  .then((res) =>console.log(res))
+                    .catch((err) => console.log(err))
+   
+               }
+   
+           
+   
+       </script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script>
-        function details(e){
-            e.preventDefault()
-            let name = e.target.username.value;
-            let email = e.target.email.value;
-            let number= e.target.number.value;
-
-            let obj = {
-                name,
-                email,
-                number
-            }
-
-           axios.post("https://crudcrud.com/api/1c2dc1ca883d4b73a9d6f47ad20dd869/userAppointment",obj)
-           .then(res => console.log(res))
-           .catch(err=>console.log(err))
-        }
-    </script>
+   
 </body>
 </html>
