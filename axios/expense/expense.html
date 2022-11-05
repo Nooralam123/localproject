@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="expense.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="employpage"> 
+        <div class="formdata">
+          
+        <form onsubmit="event.preventDefault();" autocomplete="off">
+            
+      
+            <label>Name</label>
+            <input type="text" class="empname" value=""  placeholder="Employ Name" required>
+      
+            <label>Designation</label>
+            <input type="text" class="designation" value=""  placeholder="Employ Designation" required>
+      
+            <label>Mobile</label>
+            <input type="text" class="mobile" value=""  placeholder="Employ Mobile" required>
+      
+            <label>Salary</label>
+            <input type="text" class="empsalary" value="" placeholder="Employ Salary" required>
+      
+            <div style="width:100%">
+            <input type="submit"  value="Submit"  class="button">
+            
+            </div>
+          </form>
+      
+        </div>
+      
+        <div class="display_table">
+                    <table class="list" id="employeeList">
+                          <thead>
+                               <tr>
+                            <th>Id</th>         
+                            <th>Full Name</th>
+                            <th>Designation</th>
+                            <th>Mobile</th>
+                            <th>Salary</th>                      
+                            <th>Edit</th>
+                        </tr>
+                          </thead>
+                          <tbody>
+      
+                          </tbody>
+                      </table>
+        </div>
+      </div>
+      <script src="expense.js" ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+</body>
+</html>
