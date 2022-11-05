@@ -29,6 +29,10 @@ function read_Input_Value(){
 
  
 }
+axios.post("https://crudcrud.com/api/afa58426b09d415a8a195f6a64b01c70/expense",redemp)
+.then((res)=>console.log(res))
+.catch((err)=> console.log(err))
+
 function create_Tr_Td(x){
   var empTable = document.querySelector(".list");
   var emp_tr = empTable.insertRow(empTable.length);
@@ -85,8 +89,5 @@ function onDelete() {
     }
 }
 
-axios.post("https://crudcrud.com/api/afa58426b09d415a8a195f6a64b01c70/expense",redemp)
-.then((res)=>console.log(res))
-.catch((err)=> console.log(err))
 
 
